@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+    <title>Helping Hands</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/stylemain.css" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+</head>
+
+<body class="home-bg">
+  
+	<div class="content">
+<!--
+       	<img src="wayk-hands-4-green-03.png" class="img-responsive center-block"  alt="Helping Hands Logo"style="padding-top:3vh;">
+        -->
+	<div class="title">
+        	<p>Helping Hands</p>
+	</div>
+	<div class="tagline">
+	        <p>Volunteering Made Easy</p>
+    	</div>
+        <div class="selection">
+        	<p>I am looking:</p>
+            <div class="buttons">
+                <a class="btn purple" style="font-size:inherit" data-toggle="modal" data-target="#myModal_lookingfor"><strong>for</strong> volunteer</a>
+                <a class="btn blue" style="font-size:inherit" data-toggle="modal" data-target="#myModal_lookingto"><strong>to</strong> volunteer</a>
+            </div> 
+        </div>
+        <div class="signin">
+			<p>Already have an account? <strong data-toggle="modal" data-target="#myModal_login">Sign in</strong></p>
+        </div>
+    </div>
+     <!-- Modal -->
+  <div class="modal fade" id="myModal_lookingfor" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up To Look For Volunteers</h4>
+        </div>
+            <div class="modal-body modal-text">
+              <form role="form" action="organization.html">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname">
+                </div>
+                 <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <input type="submit" class="btn green"  style="font-size:70%">
+                </form>
+            </div>
+        <div class="modal-footer">
+			 <div class="social-login">
+                <a href="#">
+                <i class="fa fa-facebook fa-lg"></i>
+                Sign up with facebook
+                </a>
+                <a href="#">
+                <i class="fa fa-google-plus fa-lg"></i>
+                Sign up with Google
+                </a>
+                </div>
+                <div class="signin modal-text">
+                    <h4>Already have an account? <strong data-dismiss="modal" data-toggle="modal" data-target="#myModal_login">Sign in</strong></h4>
+                </div>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+ 
+
+	<div class="modal fade" id="myModal_lookingto" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Sign Up To Search For Volunteering Opportunities</h4>
+        </div>
+            <div class="modal-body modal-text">
+              <form role="form" action="listing.html">
+                <div class="form-group">
+                    <label for="firstname">First Name</label>
+                    <input type="text" class="form-control" id="firstname">
+                </div>
+                 <div class="form-group">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" class="form-control" id="lastname">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <input type="submit" class="btn green"  style="font-size:70%">
+                </form>
+            </div>
+        <div class="modal-footer">
+			 <div class="social-login">
+                <a href="#">
+                <i class="fa fa-facebook fa-lg"></i>
+                Sign up with facebook
+                </a>
+                <a href="#">
+                <i class="fa fa-google-plus fa-lg"></i>
+                Sign up with Google
+                </a>
+                </div>
+                <div class="signin modal-text">
+                    <h4>Already have an account? <strong data-dismiss="modal" data-toggle="modal" data-target="#myModal_login">Sign in</strong></h4>
+                </div>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+  <div class="modal fade" id="myModal_login" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Log In</h4>
+        </div>
+            <div class="modal-body modal-text">
+              <form role="form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Password</label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+                <input type="submit" class="btn green"  style="font-size:70%">
+                </form>
+            </div>
+        <div class="modal-footer">
+			 <div class="social-login">
+                <a href="#">
+                <i class="fa fa-facebook fa-lg"></i>
+                Log in with facebook
+                </a>
+                <a href="#">
+                <i class="fa fa-google-plus fa-lg"></i>
+                Log in with Google
+                </a>
+                </div>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+    
+</body>
+
+</html>

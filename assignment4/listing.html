@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Listing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script src="listing.js"></script>
+  </head>
+  <body>
+    <!-- Nav bar -->
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <form class="navbar-form navbar-left" role="search">              
+               <button type="home" class="btn btn-default btn-container-right" >Home</button>
+               <a href= "user.html" type="profile" class="btn btn-default btn-container-right" >Edit Profile</a>
+               <a href="main.html" type="home" class="btn btn-default btn-container-right" >Logout</a>
+             </form>
+           </div><!-- /.navbar-collapse -->
+      </div>
+    </div>
+
+    <div id="org-header" class="col-lg-12" style="text-align:center">
+      <h1>Listings</h1> <br><br><br>
+      <div class="col-lg-12">      
+      <ul>
+            <a id="l1" class="btn btn-sq-lg btn-default" style="padding-right: 20px; padding-left: 20px; margin-right:20px"
+                    data-toggle="modal" data-target ="#add-event" > <br/>Listing 1 <br/> <br/></a>       
+          
+            <a  id="l2" class="btn btn-sq-lg btn-default" style="padding-right: 20px; padding-left: 20px; margin-left:20px;margin-right:20px"  data-toggle="modal" data-target ="#add-event">
+              <br/> Listing 2 <br/><br/>            
+            </a>
+              
+            <a id="l3" class="btn btn-sq-lg btn-default" style="padding-right: 20px; padding-left: 20px; margin-left:20px"
+                data-toggle="modal" data-target ="#add-event">
+              <br/> Listing 3 <br/><br/>            
+            </a> 
+        </ul>
+      </div>
+    </div>
+    
+        <!-- Modal for adding events -->
+    <div class="modal fade" id="add-event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Listing Info</h4>
+            </div>
+            <div class="modal-body">         
+              
+              <div class="table">
+                  <tr><th><b>Organization: </b></th><th> CATC </th></tr><br/>
+                  <tr><th><b>Location : </b></th><th>59 St. Geroge Street</th></tr><br/>
+                  <tr><th><b>Date: </b></th><th> March 19th, 2016 </th></tr><br/>
+                  <tr><th><b>Register by: </b></th><th>March 12th, 2016</th></tr><br/>
+                  <tr><th><b>Skills: </b></th><br>
+                    <ul>
+                        <li> Leadership </li>
+                        <li> Problem Solving </li>
+                        <li> Time Management </li>
+                        <li> Communication </li>
+                        <li> Team Worker  </li>
+                    
+                    </ul>
+                       
+                </tr>
+                <br/>
+              </div>          
+                
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-success">Volunteer</button>
+            </div>
+          </div>
+        </div>
+    </div>  
+      
+      
+      
+      
+   <!-- in case needed to be used in future -->  
+      
+    <div class="container" style="display:none">
+      <div id="listing" style="border:solid 2px black;">
+          <ul id="name"> Organization: CATC </ul>
+          <ul id="location"> Location: 59 St. Geroge Street</ul>
+          <ul id="date"> Date: March 19th, 2016</ul>
+          <ul id="deadline"> Register by: March 12th, 2016</ul>
+          <ul id="skills"> Skills Required: </ul>
+          <button id="rate"> Give Rating </button>
+          <button id="match"> Match skills </button> 
+        </div>
+    </div>
+
+  </body>
+</html>

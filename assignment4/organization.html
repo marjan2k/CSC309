@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Organization</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.7/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.js"></script>
+    <script src="js/organization.js"></script>
+  </head>
+  <body>
+    <!-- Nav bar -->
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+          </button>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+             <ul class="nav navbar-nav">
+               <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
+                 <ul class="dropdown-menu">
+                   <li>
+                     <a data-toggle="modal" data-target="#edit-profile">Edit Profile</a>
+                   </li>
+                   <li>
+                     <a data-toggle="modal" data-target="#add-event">
+                       Add Event
+                     </a>
+                   </li>
+                 </ul>
+               </li>
+             </ul>
+             <form class="navbar-form navbar-left" role="search">
+               <div class="form-group">
+                 <input type="text" class="form-control" placeholder="Search">
+               </div>
+               <button type="submit" class="btn btn-default">Submit</button>
+               <a href="main.html" type="logout" class="btn btn-default">Logout</a>
+             </form>
+           </div><!-- /.navbar-collapse -->
+      </div>
+    </div>
+
+    <div id="org-header" class="col-lg-12">
+      <h1>Canadian Autism Association</h1>
+      <div class="col-lg-12">
+        <h3>Description</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+    </div>
+
+    <div id="event" class="col-lg-12">
+        <h2>Events</h2>
+        <div id="event-list"></div>
+    </div>
+
+    <!-- Modal for adding events -->
+    <div class="modal fade" id="add-event" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Add user input for adding events-->
+
+              <div class="row">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Event Name">
+                  </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Event Date">
+                  </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Modal for editing org info -->
+    <div class="modal fade" id="edit-profile" tabindex="-1" role="dialog" aria-labelledby="edit-label">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalEditProfile">Modal title</h4>
+            </div>
+            <div class="modal-body">
+              <!-- Add user input for adding events-->
+
+              <div class="row">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Organization Name">
+                  </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Organization Info">
+                  </div>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+  </body>
+</html>
