@@ -1,0 +1,149 @@
+@import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
+body {
+    background: #3494ac;
+    background: -webkit-linear-gradient(to top, #03375d , #3494ac);
+    background: linear-gradient(to top, #03375d , #3494ac);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+}
+
+.event-list {
+    list-style: none;
+    font-family: 'Lato', sans-serif;
+    margin: 0px;
+    padding: 0px;
+    
+}
+.event-list  >  li {
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #333333;
+    margin: 0px 0px 20px;
+}
+
+
+.event-list  >  li >   time {
+    display: inline-block;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(197, 44, 102);
+    padding: 5px;
+    text-align: center;
+    text-transform: uppercase;
+}
+.event-list  >  li:nth-child(even) time {
+    background-color: rgb(165, 82, 167);
+}
+.event-list >   li >  time >  span {
+    display: none;
+}
+.event-list  >  li time >  .day {
+    display: block;
+    font-size: 56pt;
+    font-weight: 100;
+    line-height: 1;
+}
+.event-list  >  li >  time  >  .month {
+    display: block;
+    font-size: 24pt;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.event-list  >  li >  time  >  .year {
+    display: block;
+}
+.event-list >  li  > img {
+    width: 100%;
+}
+.event-list >  li >  .info {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.event-list >  li >  .info >  .title {
+    font-size: 17pt;
+    font-weight: 700;
+    margin: 0px;
+}
+.event-list >  li >  .info >  .desc {
+    font-size: 13pt;
+    font-weight: 300;
+}
+.collapsing {
+    margin-left: 130px;
+    font-size: 17pt;
+}
+.panel{
+    background-color : transparent;
+}
+.btn{
+    white-space: normal;
+}
+.button-success {
+    font-size:18px;
+    background: rgb(185, 232, 197); /* this is a green */
+}
+.button-def{
+
+}
+@media (min-width: 768px) {
+    .event-list > li {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 0px;
+    }
+    .event-list  > li >  time,
+    .event-list >  li >  img  {
+        display: inline-block;
+    }
+    .event-list >  li >  time,
+    .event-list >  li >  img {
+        width: 120px;
+        float: left;
+    }
+    .event-list  > li >  .info {
+        background-color: rgb(245, 245, 245);
+        overflow: hidden;
+    }
+    .event-list >  li >  time{
+        width: 120px;
+        height: 130px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .event-list  > li >  .info {
+        position: relative;
+        height: 130px;
+        text-align: left;
+        padding-right: 40px;
+    }
+    .event-list >  li >  .info >  .title {
+        font-size: 20pt;
+        padding-bottom:10px;
+    }
+    .event-list >  li >  .info >  .title, 
+    .event-list >  li >  .info  > .desc {
+        padding-left:10px;
+        display: flex;
+    }
+    
+    .event-list >  li >  .info >  ul {
+        padding-left:10px;
+    }
+    .list-inline>li {
+        flex: 1;
+        padding-right: 30px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .collapse.in {
+        display: block;
+        margin-left: 130px;
+        font-size: 17pt;
+    }
+
+
+}

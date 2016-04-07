@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Organization</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Jquery Dependency-->
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/jquery-ui.min.js"></script>
+		<link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.9.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet" type="text/css" />
+		<!--Bootstrap Dependency-->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+		<!--Angular JS Dependency-->
+		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+        <script src="js/organization.js" type="text/javascript"></script>
+		<style>
+		.ng-modal-overlay {
+		  /* A dark translucent div that covers the whole screen */
+		  position:absolute;
+		  z-index:9999;
+		  top:0;
+		  left:0;
+		  width:100%;
+		  height:100%;
+		  background-color:#000000;
+		  opacity: 0.8;
+		}
+		.ng-modal-dialog {
+		  /* A centered div above the overlay with a box shadow. */
+		  z-index:10000;
+		  position: absolute;
+		  width: 50%; /* Default */
+
+		  /* Center the dialog */
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  -webkit-transform: translate(-50%, -50%);
+		  -moz-transform: translate(-50%, -50%);
+
+		  background-color: #fff;
+		  box-shadow: 4px 4px 80px #000;
+		}
+		.ng-modal-dialog-content {
+		  padding:10px;
+		  text-align: left;
+		}
+		.ng-modal-close {
+		  position: absolute;
+		  top: 3px;
+		  right: 5px;
+		  padding: 5px;
+		  cursor: pointer;
+		  font-size: 120%;
+		  display: inline-block;
+		  font-weight: bold;
+		  font-family: 'arial', 'sans-serif';
+		}
+		</style>
+	</head>
+	
+	<body>
+	 <!-- Nav bar -->
+		<div class="navbar navbar-default navbar-static-top">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+			  </button>
+			</div>
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				 <ul class="nav navbar-nav">
+				   <li class="dropdown">
+					 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
+					 <ul class="dropdown-menu">
+					   <li>
+						 <a data-toggle="modal" data-target="#edit-profile">Edit Profile</a>
+					   </li>
+					   <li>
+						 <a data-toggle="modal" data-target="#addEventModal">
+						   Add Event
+						 </a>
+					   </li>
+					 </ul>
+				   </li>
+				 </ul>
+				 <form class="navbar-form navbar-left" role="search">
+				   <div class="form-group">
+					 <input type="text" class="form-control" placeholder="Search">
+				   </div>
+				   <button type="submit" class="btn btn-default">Submit</button>
+				   <a href="main.html" type="logout" class="btn btn-default">Logout</a>
+				 </form>
+                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"> Welcome!         <%= user ? user.name : "" %></span></a></li>
+                </ul> 
+			   </div><!-- /.navbar-collapse -->
+		  </div>
+		</div>	
+	<!-- Navigation Bar Ends -->
+	<h4>Welcome <%= user.name %>!</h4>
+	<div style="display:none;" id="user_email"><%= user ? user.email : "" %></div>
+	<h4>Post Your Volunteering Opportunities by Pressing the Button Below.</h4>
+    
+	<!-- Add Event Modal -->
+	<div class="container" ng-app='CombineModule'>
+	<div ng-cloak ng-controller="addRemoveItem" class="" style="">
+	  <!-- Trigger the modal with a button -->
+	  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addEventModal">Add Event</button>
+
+	  <!-- Modal -->
+	  <div class="modal fade" id="addEventModal" role="dialog">
+		<div class="modal-dialog">
+		  <!-- Modal content-->
+		  <div class="modal-content">
+			<div class="modal-header">
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h4 class="modal-title">Volunteer Event Form</h4>
+			</div>
+			<div class="modal-body">
+					<form role="form">
+					<div class="form-group">
+						<label for="event_name">Event Name</label>
+						<input type="text" class="form-control" id="event_name">
+					</div>
+					<div class="form-group">
+						<label for="organization_name">Organization Name</label>
+						<input type="text" class="form-control" id="organization_name">
+					</div>					
+					<div class="form-group">
+						<label for="event_date">Date</label>
+						<input type="text" class="form-control" id="event_date">
+					</div>
+					<div class="form-group">
+						<label for="event_location">Location</label>
+						<input type="text" class="form-control" id="event_location">
+					</div>
+					<div class="form-group">
+						<label for="event_description">Description</label>
+						<input type="text" class="form-control" id="event_description">
+					</div>
+					<div class="form-group">
+						<label for="event_lookingFor">Skills We Look For</label>
+							<div class="">
+							<div class="">
+							<div class="">
+							<input type="text" class="form-control" id="event_lookingFor" placeholder="Add skills required here" ng-model="skill">
+							</div>
+							<div class="">
+							<button type="button" ng-click="addItem()" class="">Add</button>
+							</div>
+							</div>
+							<p class="">{{errortext}}</p>
+							</div>
+							<ul class="">
+								<li ng-repeat="x in skills" class="">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class=""> x</span></li>
+							</ul>
+					</div>						
+					<div class="form-group">
+						<label for="event_numOfVolunteers">Number of Volunteers Needed</label>
+						<input type="text" class="form-control" id="event_numOfVolunteers">
+					</div>
+              
+					</form>	
+			</div>			  
+			<div class="modal-footer">
+				<button type="button" ng-click = clearList()
+				class="btn btn-default" data-dismiss="modal" id= "btn_eventForm_submit">Submit</button>
+			</div>
+		  </div>
+		</div>	  
+	  </div>
+  </div>		
+  </div>
+	<!-- Add Event Modal Ends -->
+	<body>
+</html>

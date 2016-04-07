@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Listing</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/listing.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="js/listinghandler.js" type="text/javascript"></script>
+  </head>
+  <body ng-controller="ListingController">
+    <!-- Nav bar -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/authenticated">Helping Hands</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/user">Profile</a></li>
+          <li><a href="/organization">Organization</a></li>
+          <li><a href="/listing">Listing</a></li>  
+          <li><form class="navbar-form" role="search">
+            <div class="input-group">
+            <input ng-model="search_term" type="text" class="form-control" placeholder="Search" name="q">
+            <div class="input-group-btn">
+                <button ng-click="SearchListing(search_term)" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+            </div>
+            </form>
+        </li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+<!--           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+            <li><a href="#"><span class="glyphicon glyphicon-user"> Welcome!         <%= user ? user.name : "" %></span></a></li>
+        </ul> 
+      </div>
+    </nav>
+    <div style="display:none;" id="userdata"><%= user ? user : "" %></div>
+    <div style="display:none;" id="useremail"><%= user ? user.email : "" %></div>
+
+
+      <h1 style="color:white; text-align:center">Listings</h1> <br><br><br>    
+
+      
+    <section>
+       <div class="container">
+    	<div class="row">
+			<div class="col-lg-12">
+				<ul class="event-list panel" id="accordion">
+                    <li ng-repeat="event in events"  data-toggle="collapse" data-parent="#accordion" href="#{{'collapse'+$index+1}}" class="panel">
+						<time datetime="2014-07-20 0000">
+							<span class="day">8</span>
+							<span class="month">Jul</span>
+							<span class="year">2014</span>
+							<span class="time">12:00 AM</span>
+						</time>
+						<div class="info">
+							<h2 class="title">{{event.name}}</h2>
+                                <ul class="list-inline desc">
+                                    <li><b>Organization: </b>{{event.organization}}</li>
+                                    <li><b>Location: </b>{{event.location}}</li>
+                                </ul>
+                                <ul class="list-inline desc">
+                                    <li><b>Number of Volunteers Required: </b>{{event.num_of_volunteers}}</li>
+                                    <li><b>Number of Volunteers Confirmed: </b>{{event.confirmed_volunteers}}</li>
+                                </ul>
+                                <ul class="list-inline desc">
+                                    <li><b>Skills Required: </b>{{LookingFor}}</li>
+
+                                </ul>
+						</div>
+                        <div id="{{'collapse'+$index+1}}" class="collapse desc">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    Event Description
+                                    {{event.description}}
+                                </div>
+                    
+                            <div class="col-sm-2">
+                                <button ng-click="UpdateListing($index+1)" type="button" ng-class="event.btnclass"><span class="glyphicon glyphicon-ok"></span> Sign Up</button>
+                            </div>         
+                        </div>
+                        </div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+    </section>
+    
+    
+    
+      
+   <!-- in case needed to be used in future -->  
+      
+    <div class="container" style="display:none">
+      <div id="listing" style="border:solid 2px black;">
+          <ul id="name"> Organization: CATC </ul>
+          <ul id="location"> Location: 59 St. Geroge Street</ul>
+          <ul id="date"> Date: March 19th, 2016</ul>
+          <ul id="deadline"> Register by: March 12th, 2016</ul>
+          <ul id="skills"> Skills Required: </ul>
+          <button id="rate"> Give Rating </button>
+          <button id="match"> Match skills </button> 
+        </div>
+    </div>
+
+  </body>
+</html>

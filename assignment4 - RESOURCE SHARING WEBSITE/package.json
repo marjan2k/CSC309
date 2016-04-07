@@ -1,0 +1,30 @@
+{
+  "name": "enlist",
+  "description": "volunteering platform",
+  "main": "node.js",
+  "version": "1.0.0",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mongodb": "^2.1.7",
+    "mongoose": "^4.4.8",
+    "passport": "^0.3.2",
+    "passport-google-oauth": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://yajneshvar@bitbucket.org/yajneshvar/enlist.git"
+  },
+  "keywords": [
+    "voluntering"
+  ],
+  "homepage": "https://bitbucket.org/yajneshvar/enlist#readme"
+}

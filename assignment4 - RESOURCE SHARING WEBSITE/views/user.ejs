@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html">
+  <title>User Profile Page</title>
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <!-- Jquery Dependency-->	
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!-- Angular JS Dependency-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+</head>
+
+<body ng-app='CombineModule'>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/authenticated">Helping Hands</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><a href="/user">Profile</a></li>
+          <li><a href="/organization">Organization</a></li>
+          <li><a href="/listing">Listing</a></li>  
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+<!--           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
+            <li><a href="#"><span class="glyphicon glyphicon-user"> Welcome!         <%= user ? user.name : "" %></span></a></li>
+        </ul> 
+      </div>
+    </nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+        <h2>Welcome <span id="username"><%= user ? user.name : "" %></span>!</h2>
+        <img src=<%= user.img %> >
+        </div>
+        <div class="col-sm-8">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" href="#tab1">Personal Information</a></li>
+                <li><a data-toggle="pill" href="#tab2">Skills/Interests</a></li>
+            </ul>
+  
+       <div class="tab-content">
+                <div id="tab1" class="tab-pane fade in active">
+                    <p>Name: <span id="username"><%= user ? user.name : "" %></span></p>
+                    <p>Age: <span id="userage"><%= user ? user.age : "" %></span></p>
+                    <p>Birth Date: <span id="userdob"><%= user ? user.birth_date : "" %></span></p>
+                    <p>Phone Number: <span id="userphone"><%= user ? user.number : "" %></span></p>
+                    <p>Address: <span id="useraddr"><%= user ? user.address : "" %></span></p>
+                </div>
+                <div id="tab2" class="tab-pane fade">
+                  <p>Skills: <%= user ? user.skills : "" %></p>
+                  <p>Interests: <%= user ? user.interests : "" %></p>
+                </div>
+          </div>
+
+        </div>
+    </div>
+ 
+
+  <!--
+      <section id="about">
+		<p>I have over 10+ years experience working as Senior Business Analyst. I am a highly skilled professional with an extensive Analysis background.</p>
+
+		<p>I take my commitment to customer service very seriously. I have built various Excel spreadsheets and Access databases to enhance data, simplify information, identify issues, highlight successes, build data integrity, highlight errors and automate processes.</p>
+		<p>I am also available to perform transportation of precious / fragile items.</p>
+		<p>I am currently self-employed, so please do not hesitate to contact me. I look forward to discussing your requirements further.</p>
+      </section>
+
+      <section id="activity" class="hidden">
+        <p>Most recent actions:</p>
+
+		  <p class="activity">@10:15PM - Signed up for event <strong>someevent</strong> organized by someorganization</p>
+
+          <p class="activity">@9:50PM - Will attend an event at 10:00 AM on Wed March 20, 2016</p>
+
+          <p class="activity">@8:15PM - Posted a comment</p>
+
+          <p class="activity">@4:30PM - Changed Profile Picture</p>
+
+          <p class="activity">@12:30PM - Received Review from user <strong>someuser</strong> for event someevent hosted by someorganization</p>
+      </section>
+
+      <section id="skills" class="hidden">
+        <p>SKILLS</p>
+        <p>Education</p>
+        <ul id="skillslist" class="clearfix">
+          <li>Associate Diploma in Business, Micro-Computing</li>
+        </ul>
+		<br>
+
+        <p>Specialties</p>
+        <ul id="skillslist" class="clearfix">
+          <li>Data Analysis</li>
+          <li>Business Analysis</li>
+          <li>Innovative Problem Solving</li>
+		  <li>Enhanced Reporting</li>
+        </ul>
+		<br>
+
+        <p>Language</p>
+        <ul id="skillslist" class="clearfix">
+          <li>English</li>
+        </ul>
+		<br>
+
+        <p>Transportation</p>
+        <ul id="skillslist" class="clearfix">
+          <li>Car</li>
+		  <li>Online</li>
+		  <li>Walk</li>
+        </ul>
+		<br>
+
+        <p>Work Experience</p>
+        <ul id="skillslist" class="clearfix">
+          <li>I have worked at IBM for 19 years, performing various roles, with my last two roles being a Senior Business Analyst and Project Management Financial Analyst</li>
+        </ul>
+		<br>
+        <p>PORTFOLIO</p>
+        <ul id="skillslist" class="clearfix">
+          <li><img src="images/Micro_Word.png" width="44" height="44"></li>
+          <li><img src="images/Micro_Access.png" width="44" height="44"></li>
+          <li><img src="images/Micro_PowerPoint.png" width="44" height="44"> </li>
+		  <li><img src="images/Micro_Excel.png" width="44" height="44"></li>
+        </ul>
+      </section>
+
+      <section id="settings" class="hidden" ng-controller="clickToEditCtrl">
+        <p>Edit your user settings:</p>
+			<div ng-hide="edit_user_name">
+				<p class="setting"><span>Name <img src="images/edit.png" alt="*Edit*" ng-click="edit_user_name=!edit_user_name"></span> {{user_name}}</p>
+			</div>
+			<div ng-show="edit_user_name">
+				<p class="setting"><input ng-model="user_name"> <button type="button" ng-click="edit_user_name=!edit_user_name">Save</button></p>
+			</div>
+
+			<div ng-hide="edit_user_birth_date">
+				<p class="setting"><span>Birth Date <img src="images/edit.png" alt="*Edit*" ng-click="edit_user_birth_date=!edit_user_birth_date"></span> {{user_birth_date}}</p>
+			</div>
+			<div ng-show="edit_user_birth_date">
+				<p class="setting"><input ng-model="user_birth_date"> <button type="button" ng-click="edit_user_birth_date=!edit_user_birth_date">Save</button></p>
+			</div>
+		  
+        <p class="setting"><span>Password <img src="images/edit.png" alt="*Edit*"></span>************</p>
+
+			<div ng-hide="edit_user_skills">
+				<p class="setting"><span>User Skills <img src="images/edit.png" alt="*Edit*" ng-click="edit_user_skills=!edit_user_skills"></span> <ul class="clearfix">
+				<li ng-repeat="x in user_skills">{{x}}</li>
+				</ul></p>
+			</div>
+			<div ng-show="edit_user_skills">
+				<p class="setting"><input type="text" placeholder="Add skills required here" ng-model="skill"> <button type="button" ng-click="addItem()" class="">Add</button>
+				<p class="">{{errortext}}</p>
+				<ul class="">
+				<li ng-repeat="x in user_skills" class="">{{x}}<span ng-click="removeItem($index)" style="cursor:pointer;" class=""> x</span></li>
+				</ul>
+				<button type="button" ng-click="edit_user_skills=!edit_user_skills">Save</button></p>
+			</div>		 
+		  
+			<div ng-hide="edit_user_phone">
+				<p class="setting"><span>Phone Number <img src="images/edit.png" alt="*Edit*" ng-click="edit_user_phone=!edit_user_phone"></span> {{user_phone}}</p>
+			</div>
+			<div ng-show="edit_user_phone">
+				<p class="setting"><input ng-model="user_phone"> <button type="button" ng-click="edit_user_phone=!edit_user_phone">Save</button></p>
+			</div>
+		  
+			<div ng-hide="edit_user_address">
+				<p class="setting"><span>Address <img src="images/edit.png" alt="*Edit*" ng-click="edit_user_address=!edit_user_address"></span> {{user_address}}</p>
+			</div>
+			<div ng-show="edit_user_address">
+				<p class="setting"><input ng-model="user_address"> <button type="button" ng-click="edit_user_address=!edit_user_address">Save</button></p>
+			</div>		  
+      </section>
+
+      <section id="reviews" class="hidden">
+		<p>REVIEWS</p>
+		  <table>
+			  <tr>
+			  <th>Average Reviews</th>
+		      <th>Summary</th>
+			  </tr>
+			  <tr>
+				  <td><img src="images/5star.png" width="200" height="50"></td>
+				  <td><img src="images/ratingSummary.png"></td>
+			  </tr>
+			  <tr>
+				  <td>5 Stars from 5 Reviews</td>
+			  </tr>
+
+		  </table>
+
+		  <div id = "review" class="review">
+		  <table>
+			  <tr>
+				  <th><img src="images/5star.png" width="100" height="19"> </th>
+				<th><a href="#">Excel spreadsheet formula update</a></th>
+			  </tr>
+			  <tr>
+				<td><img src="images/avatar.png" width="30" height="30" ></td>
+				<td><a href="#">Mark S.</a> said “Mariah, handled every question and task within the scope of what was required, would definitely recommend rohan for any further excel work .”</td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td>6th Mar 2016</td>
+			  </tr>
+		  </table>
+		  </div>
+
+		  <div id = "review" class="review">
+		  <table>
+			  <tr>
+				  <th><img src="images/5star.png" width="100" height="19"> </th>
+				<th><a href="#">Create a project / event plan using Google Doc</a></th>
+			  </tr>
+			  <tr>
+				<td><img src="images/avatar.png" width="30" height="30" ></td>
+				<td><a href="#">Kate U.</a> said “Mariah was great to deal with. She provided direct instructions and constructive feedback. I look forward to working with her again.”</td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td>19th Feb 2016</td>
+			  </tr>
+		  </table>
+		  </div>
+
+		  <div id = "review" class="review">
+		  <table>
+			  <tr>
+				  <th><img src="images/5star.png" width="100" height="19"> </th>
+				<th><a href="#">Jazz up a excel sheet</a></th>
+			  </tr>
+			  <tr>
+				<td><img src="images/avatar.png" width="30" height="30" ></td>
+				<td><a href="#">Margo B.</a> said “Revised and greatly improved an excel spreadsheet. Delivered beyond expectations. No hesitation to work with Mariah again. Many thanks.”</td>
+			  </tr>
+			  <tr>
+				<td></td>
+				<td>19th Feb 2016</td>
+			  </tr>
+		  </table>
+		  </div>
+      </section>
+      -->
+    </div><!-- @end #content -->
+  </div><!-- @end #w -->
+<script type="text/javascript">	
+	
+	var editProfileField = angular.module("editProfileField", []); 
+	editProfileField.controller("clickToEditCtrl", function($scope) {
+	$scope.user_name = "default user name";
+	$scope.user_birth_date = "default birth date";
+	$scope.user_phone = "default user phone";
+	$scope.user_address = "default user address";
+	$scope.user_skills = ["Leadership", "Communication"];
+	$scope.addItem = function () {
+		$scope.errortext = "";
+		if (!$scope.skill) {
+			return;
+		}
+		if ($scope.user_skills.indexOf($scope.skill) == -1) {
+			$scope.user_skills.push($scope.skill);
+			$scope.skill = "";
+		} else {
+			$scope.errortext = "The item is already in your skills list.";
+			$scope.skill = "";
+		}
+	}
+	$scope.removeItem = function (x) {
+		$scope.errortext = "";    
+		$scope.user_skills.splice(x, 1);
+	}
+	$scope.clearList = function (){
+		$scope.user_skills = [];
+	}
+	});	
+	
+	//Combine Modules under the same ng-app name
+		angular.module("CombineModule", ["editProfileField"]);	
+  
+$(function(){
+  $('#profiletabs ul li a').on('click', function(e){
+    e.preventDefault();
+    var newcontent = $(this).attr('href');
+
+    $('#profiletabs ul li a').removeClass('sel');
+    $(this).addClass('sel');
+
+    $('#content section').each(function(){
+      if(!$(this).hasClass('hidden')) { $(this).addClass('hidden'); }
+    });
+
+    $(newcontent).removeClass('hidden');
+  });
+});
+</script>
+</body>
+</html>
